@@ -10,23 +10,28 @@ void CoffeeExpress::on() {
 }
 
 void CoffeeExpress::makeCoffee() {
-    std::cout << "Making cofee..." << '\n';
+    state_->setState(this);
+    state_->makeCoffee();
 }
 
 void CoffeeExpress::boilingUpWater() {
-    std::cout << "Boiling up water..." << '\n';
+    state_->setState(this);
+    state_->boilingUpWater();
 }
 
 void CoffeeExpress::grindCoffeeBeans() {
-    std::cout << "Grinding coffee beans..." << '\n';
+    state_->setState(this);
+    state_->grindCoffeeBeans();
 }
 
 void CoffeeExpress::off() {
-    std::cout << "Coffee express is off..." << '\n';
+    state_->setState(this);
+    state_->off();
 }
 
 void CoffeeExpress::wait() {
-    std::cout << "I'm ready for action..." << '\n';
+    state_->setState(this);
+    state_->wait();
 }
 
 void CoffeeExpress::printMenu() {
@@ -37,7 +42,6 @@ void CoffeeExpress::printMenu() {
 }
 
 void CoffeeExpress::changeState(CoffeeExpressState* state) {
-    //std::cout << "Change state to: " << *typeid(*state).name() << '\n';
     if (this->state_ != nullptr) {
         delete this->state_;
     }
