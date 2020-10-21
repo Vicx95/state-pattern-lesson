@@ -1,36 +1,40 @@
+#include "CoffeeExpressOff.hpp"
 #include <iostream>
-#include "CoffeeExpressOn.hpp"
-CoffeeExpressOn::CoffeeExpressOn(CoffeeExpress* express)
+CoffeeExpressOff::CoffeeExpressOff(CoffeeExpress* express)
     : coffeeExpress_(express) {}
 
-void CoffeeExpressOn::on() {
+void CoffeeExpressOff::on() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::makeCoffee() {
+void CoffeeExpressOff::makeCoffee() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::boilingUpWater() {
+void CoffeeExpressOff::boilingUpWater() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::grindCoffeeBeans() {
+void CoffeeExpressOff::grindCoffeeBeans() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::lackOfCoffeeBeans() {
+void CoffeeExpressOff::lackOfCoffeeBeans() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::lackOfWater() {
+void CoffeeExpressOff::lackOfWater() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::wait() {
+void CoffeeExpressOff::wait() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
-void CoffeeExpressOn::off() {
+void CoffeeExpressOff::off() {
     std::cout << __PRETTY_FUNCTION__ << '\n';
+}
+
+void CoffeeExpressOff::setState(CoffeeExpress* express) {
+    this->coffeeExpress_ = express;
 }
