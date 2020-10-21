@@ -8,10 +8,27 @@ include_directories(src)
 
 set(HEADERS   
     inc/CoffeeExpress.hpp
+    inc/CoffeeExpressState.hpp
+    inc/CoffeeExpressOn.hpp
+    inc/CoffeeExpressBoilingUpWater.hpp
+    inc/CoffeeExpressMakeCoffee.hpp
+    inc/CoffeeExpressGrindCoffeeBeans.hpp
+    inc/CoffeeExpressLackOfCoffeeBeans.hpp
+    inc/CoffeeExpressLackOfWater.hpp
+    inc/CoffeeExpressWait.hpp
+    inc/CoffeeExpressOff.hpp
     )
 
 set(SRC
     src/CoffeeExpress.cpp
+    src/CoffeeExpressOn.cpp
+    src/CoffeeExpressBoilingUpWater.cpp
+    src/CoffeeExpressMakeCoffee.cpp
+    src/CoffeeExpressGrindCoffeeBeans.cpp
+    src/CoffeeExpressLackOfCoffeeBeans.cpp
+    src/CoffeeExpressLackOfWater.cpp
+    src/CoffeeExpressWait.cpp
+    src/CoffeeExpressOff.cpp
     )
 
 add_library(${PROJECT_NAME}-lib STATIC ${SRC})

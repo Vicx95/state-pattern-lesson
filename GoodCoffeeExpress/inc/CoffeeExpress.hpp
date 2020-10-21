@@ -1,17 +1,22 @@
 #pragma once
+#include "CoffeExpressState.hpp"
 class CoffeeExpress {
 public:
-    CoffeeExpress() = default;
+    explicit CoffeeExpress(CoffeeExpressState* state); 
 
     void on();
     void makeCoffee();
     void boilingUpWater();
     void grindCoffeeBeans();
+    void lackOfCoffeeBeans();
+    void lackOfWater();
     void wait();
     void off();
-    void error()
+    void changeState(CoffeeExpressState* state);
     void printMenu();
-    void run();
 
-    ~CoffeeExpress() = default;
+    ~CoffeeExpress();
+
+private:
+    CoffeeExpressState* state_;
 };
