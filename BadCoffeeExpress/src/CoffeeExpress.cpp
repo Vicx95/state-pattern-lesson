@@ -1,20 +1,25 @@
 #include "CoffeeExpress.hpp"
 #include <iostream>
 
+constexpr int waterNeedToMakeCoffee = 20;
+constexpr int coffeeBeansNeedToMakeCoffee = 25;
+
 void CoffeeExpress::on() {
-    std::cout << "Coffee express is on..." << '\n';
+    std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 void CoffeeExpress::makeCoffee() {
-    std::cout << "Making cofee..." << '\n';
+    std::cout << __PRETTY_FUNCTION__ << '\n';
+    waterLevel_ -= waterNeedToMakeCoffee;
+    coffeeBeansLevel_ -= coffeeBeansNeedToMakeCoffee;
 }
 
 void CoffeeExpress::boilingUpWater() {
-    std::cout << "Boiling up water..." << '\n';
+    std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 void CoffeeExpress::grindCoffeeBeans() {
-    std::cout << "Grinding coffee beans..." << '\n';
+    std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 void CoffeeExpress::error(ExpressActions error) {
@@ -30,11 +35,11 @@ void CoffeeExpress::error(ExpressActions error) {
 }
 
 void CoffeeExpress::off() {
-    std::cout << "Coffee express is off..." << '\n';
+    std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 void CoffeeExpress::wait() {
-    std::cout << "I'm ready for action..." << '\n';
+    std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 void CoffeeExpress::makeAction(ExpressActions action) {
@@ -43,9 +48,16 @@ void CoffeeExpress::makeAction(ExpressActions action) {
         on();
         break;
     case ExpressActions::MakeCoffee:
-        boilingUpWater();
-        grindCoffeeBeans();
-        makeCoffee();
+        if (waterLevel_ >= waterNeedToMakeCoffee &&
+            coffeeBeansLevel_ >= coffeeBeansNeedToMakeCoffee) {
+            boilingUpWater();
+            grindCoffeeBeans();
+            makeCoffee();
+        } else if (waterLevel_ < waterNeedToMakeCoffee) {
+            error(ExpressActions::LackOfWater);
+        } else if (coffeeBeansLevel_ < coffeeBeansNeedToMakeCoffee) {
+            error(ExpressActions::LackOfCoffeeBeans);
+        }
         break;
     case ExpressActions::LackOfWater:
         error(ExpressActions::LackOfWater);

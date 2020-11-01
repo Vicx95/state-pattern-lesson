@@ -24,4 +24,7 @@ public:
     void run();
 
     ~CoffeeExpress() = default;
+private:
+    int waterLevel_ = 100;
+    int coffeeBeansLevel_ = 100;
 };
